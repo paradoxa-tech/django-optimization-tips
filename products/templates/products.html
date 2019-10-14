@@ -1,0 +1,84 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "dataTables/css/datatables.min.css" %}">
+
+        <title>PyDay BCN 2019</title>
+    </head>
+    <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <br>
+                <h1>Tips for Optimizing Django Database Queries<br>
+                    <small class="text-muted"> PyDay BCN 2019</small>
+                </h1>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <table id="products" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Extn.</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Extn.</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {# JS #}
+    <script src="{% static "jquery/js/jquery-3.4.1.min.js" %}"></script>
+    <script src="{% static "popper/js/popper-1.14.7.min.js" %}"></script>
+    <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "dataTables/js/datatables.min.js" %}"></script>
+
+    <script>
+        $(document).ready( function () {
+            var table = $('table#products').DataTable( {
+                "fixedHeader": true,
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "/table/",
+                    "type": "POST",
+                    "headers": {'X-CSRFToken': '{{ csrf_token }}'},
+                },
+                "columns": [
+                    { "data": "name" },
+                    { "data": "position" },
+                    { "data": "office" },
+                    { "data": "extn" },
+                    { "data": "start_date" },
+                    { "data": "salary" }
+                ]
+            } );
+        } );
+    </script>
+  </body>
+</html>
