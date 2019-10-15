@@ -46,22 +46,26 @@
                 <table id="products" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
+                            <th>SKU</th>
                             <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Extn.</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>Brand</th>
+                            <th>Category level 1</th>
+                            <th>Variations</th>
+                            <th>Price</th>
+                            <th>Margin</th>
+                            <th>Last month sales</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
+                            <th>SKU</th>
                             <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Extn.</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>Brand</th>
+                            <th>Category level 1</th>
+                            <th>Variations</th>
+                            <th>Price</th>
+                            <th>Margin</th>
+                            <th>Last month sales</th>
                         </tr>
                     </tfoot>
                 </table>
@@ -91,12 +95,14 @@
                 },
                 "fnDrawCallback": table_callback('{{ csrf_token }}'),
                 "columns": [
+                    { "data": "sku" },
                     { "data": "name" },
-                    { "data": "position" },
-                    { "data": "office" },
-                    { "data": "extn" },
-                    { "data": "start_date" },
-                    { "data": "salary" }
+                    { "data": "brand" },
+                    { "data": "category_level_1" },
+                    { "data": "variations" },
+                    { "data": "price" },
+                    { "data": "margin" },
+                    { "data": "last_month_sales" },
                 ]
             } );
         } );
