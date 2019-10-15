@@ -16,10 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from products.views import ProductsView, ProductTableView
+from products.views import ProductsView, ProductTableView, \
+    ProductTableCallbackView
 
 urlpatterns = [
     path(r"", ProductsView.as_view(), name="products"),
     path(r"table/", ProductTableView.as_view(), name="products_table"),
+    path(
+        r"table_callback/",
+        ProductTableCallbackView.as_view(),
+        name="table_callback"
+    ),
+
     path('admin/', admin.site.urls),
 ]

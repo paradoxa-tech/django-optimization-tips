@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Measurement:
+class Measurement(models.Model):
     request_time = models.FloatField(blank=True, null=True)
     number_of_queries = models.IntegerField(blank=True, null=True)
     created_at = models.DateTimeField(
