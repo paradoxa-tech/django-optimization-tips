@@ -1,4 +1,3 @@
-
 class ProcessTableData:
 
     def __init__(self, page_length, start, order_column, order_dir, search):
