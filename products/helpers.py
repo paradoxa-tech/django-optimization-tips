@@ -43,7 +43,7 @@ class ProcessTableData:
             search = self.search.lower()
             if search in row["sku"].lower() \
                     or search in row["name"].lower() \
-                    or search in row["branc"].lower() \
+                    or search in row["brand"].lower() \
                     or search in row["category_level_1"].lower() \
                     or search in row["variations"].lower():
                 search_data.append(row)
