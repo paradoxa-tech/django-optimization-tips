@@ -41,12 +41,11 @@ class ProcessTableData:
         search_data = []
         for row in self.data:
             search = self.search.lower()
-            if search in row["name"].lower() \
-                    or search in row["position"].lower() \
-                    or search in row["salary"].lower() \
-                    or search in row["start_date"].lower() \
-                    or search in row["office"].lower() \
-                    or search in row["extn"].lower():
+            if search in row["sku"].lower() \
+                    or search in row["name"].lower() \
+                    or search in row["branc"].lower() \
+                    or search in row["category_level_1"].lower() \
+                    or search in row["variations"].lower()
                 search_data.append(row)
         self.data = search_data
 
