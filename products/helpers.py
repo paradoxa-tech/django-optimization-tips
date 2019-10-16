@@ -78,7 +78,7 @@ class ProcessTableData:
 
     @staticmethod
     def get_product_variations(product):
-        return product.product_variations.values()
+        return str(product.product_variations.values_list())
 
     @staticmethod
     def get_product_margin(product):
@@ -92,7 +92,7 @@ class ProcessTableData:
         last_month_date = today - datetime.timedelta(days=30)
         quantity_acc = 0
         for sale in sales:
-            if sale.date <= last_month_date:
+            if sale.date.date() <= last_month_date:
                 quantity_acc += sale.quantity_purchased
 
         return quantity_acc
