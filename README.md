@@ -54,3 +54,12 @@ Get the project from our public repo:
 ```
 git clone https://github.com/paradoxa-tech/django-optimization-tips.git
 ```
+
+## Load database
+Load database
+```
+python manage.py shell
+
+>>> from utils.fill_database import load_data
+>>> load_database()
+```
