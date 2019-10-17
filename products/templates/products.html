@@ -93,7 +93,7 @@
                     "type": "POST",
                     "headers": {'X-CSRFToken': '{{ csrf_token }}'},
                 },
-                "fnDrawCallback": table_callback('{{ csrf_token }}'),
+                "drawCallback": function() {table_callback('{{ csrf_token }}')},
                 "columns": [
                     { "data": "sku" },
                     { "data": "name" },
