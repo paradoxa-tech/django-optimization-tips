@@ -60,6 +60,6 @@ Load database
 ```
 python manage.py shell
 
->>> from utils.fill_database import load_data
+>>> from utils.database import load_database
 >>> load_database()
 ```
