@@ -57,9 +57,8 @@ class ProcessTableData:
 
     def generate_data(self):
         table_info = []
-        products_ids = Product.objects.filter().values_list('id', flat=True)
-        for product_id in products_ids:
-            product = Product.objects.get(id=product_id)
+
+        for product in Product.objects.all():
             product_info = dict()
             product_info["sku"] = product.sku
             product_info["name"] = product.name
@@ -78,7 +77,10 @@ class ProcessTableData:
 
     @staticmethod
     def get_product_variations(product):
-        return str(product.product_variations.values_list())
+        variations = product.product_variations.all()
+        return [
+            f"{v.variation_type}: {v.variation_value}, " for v in variations
+        ]
 
     @staticmethod
     def get_product_margin(product):
