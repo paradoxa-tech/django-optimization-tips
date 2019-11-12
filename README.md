@@ -56,7 +56,7 @@ git clone https://github.com/paradoxa-tech/django-optimization-tips.git
 ```
 ## Run the server
 ```
-python manage.py runserver 9000
+$ python manage.py runserver 9000
 ```
 ## Load database
 Load database
