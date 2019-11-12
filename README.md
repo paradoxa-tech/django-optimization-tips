@@ -37,24 +37,27 @@ $ sudo apt install -y python3-venv
 ### Setup the virtual environment to run the project
 1. Create a new directory where you are going to clone the project.
     ```
-    $ mkdir pycones_best_workshop
+    $ mkdir pydaybcn_best_workshop
     ```
 1. Create a directory for the virtual environment.
     ```
-    $ cd pycones_best_workshop
-    $ mkdir pycones_venv
+    $ cd pydaybcn_best_workshop
+    $ mkdir dot_venv
     ```
 1. Create and activate the virtual environment:
     ```
-    $ python3 -m venv pycones_venv
-    $ source pycones_venv/bin/activate
+    $ python3 -m venv dot_venv
+    $ source dot_venv/bin/activate
     ```
 ## Download the project
 Get the project from our public repo:
 ```
 git clone https://github.com/paradoxa-tech/django-optimization-tips.git
 ```
-
+## Run the server
+```
+python manage.py runserver 9000
+```
 ## Load database
 Load database
 ```
@@ -63,3 +66,5 @@ python manage.py shell
 >>> from utils.database import load_database
 >>> load_database()
 ```
+## Access to the application
+In your Internet browser go to http://127.0.0.1:9000/
