@@ -67,7 +67,7 @@ class ProcessTableData:
             product_info["category_level_1"] = product.category_level_1
             product_info["margin"] = self.get_product_margin(product)
             product_info["price"] = product.current_price
-            product_info["last_month_sales"] = self.get_last_month_sales(
+            product_info["last_month_sales"] = self.task_3_get_last_month_sales(
                 product
             )
 
@@ -88,7 +88,7 @@ class ProcessTableData:
         return margin
 
     @staticmethod
-    def get_last_month_sales(product):
+    def task_3_get_last_month_sales(product):
         sales = Sale.objects.filter(product=product)
         today = datetime.date.today()
         last_month_date = today - datetime.timedelta(days=30)
