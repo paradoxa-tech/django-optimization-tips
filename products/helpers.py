@@ -12,7 +12,7 @@ class ProcessTableData:
         self.order_dir = order_dir
         self.search = search
 
-        self.data = self.generate_data()
+        self.data = self.task_2_generate_data()
 
     def sort_data(self):
         headers_index = {
@@ -55,7 +55,7 @@ class ProcessTableData:
     def get_data(self):
         return self.data
 
-    def generate_data(self):
+    def task_2_generate_data(self):
         table_info = []
 
         for product in Product.objects.all():
