@@ -54,6 +54,11 @@ Get the project from our public repo:
 ```
 git clone https://github.com/paradoxa-tech/django-optimization-tips.git
 ```
+## Install requirements
+```
+cd django-optimization-tips
+pip3 install -r requirements.txt
+```
 ## Run the server
 ```
 $ python manage.py runserver 9000
