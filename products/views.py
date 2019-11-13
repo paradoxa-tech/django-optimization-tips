@@ -33,7 +33,7 @@ class ProductTableView(View):
             )
             total_records = process_table_data.calculate_total_records()
             process_table_data.sort_data()
-            process_table_data.search_data()
+            process_table_data.task_3_search_data()
             data = process_table_data.get_data()
             filtered_records = len(data)
             data = data[start:start + page_length]
