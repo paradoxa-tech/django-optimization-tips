@@ -38,14 +38,15 @@ class ProcessTableData:
         )
 
     def search_data(self):
+        if not self.search:
+            return self.data
         search_data = []
         for row in self.data:
             search = self.search.lower()
             if search in row["sku"].lower() \
                     or search in row["name"].lower() \
                     or search in row["brand"].lower() \
-                    or search in row["category_level_1"].lower() \
-                    or search in row["variations"].lower():
+                    or search in row["category_level_1"].lower():
                 search_data.append(row)
         self.data = search_data
 
@@ -79,7 +80,7 @@ class ProcessTableData:
     def get_product_variations(product):
         variations = product.product_variations.all()
         return [
-            f"{v.variation_type}: {v.variation_value}, " for v in variations
+            f" {v.variation_type}: {v.variation_value}" for v in variations
         ]
 
     @staticmethod
