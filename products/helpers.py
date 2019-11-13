@@ -37,7 +37,7 @@ class ProcessTableData:
             reverse=reverse
         )
 
-    def task_3_search_data(self):
+    def task_4_search_data(self):
         if not self.search:
             return self.data
         search_data = []
