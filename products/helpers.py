@@ -1,6 +1,6 @@
 import datetime
 
-from django.db.models import Sum
+from django.db.models import Sum, Q
 
 from products.models import Product, Sale
 
@@ -40,18 +40,16 @@ class ProcessTableData:
         )
 
     # self.task_4_search_data(product_queryset):
-    def task_4_search_data(self):
+    def task_4_search_data(self, products_queryset):
         if not self.search:
-            return self.data
-        search_data = []
-        for row in self.data:
-            search = self.search.lower()
-            if search in row["sku"].lower() \
-                    or search in row["name"].lower() \
-                    or search in row["brand"].lower() \
-                    or search in row["category_level_1"].lower():
-                search_data.append(row)
-        self.data = search_data
+            return products_queryset
+
+        return products_queryset.filter(
+            Q(sku__icontains=self.search) |
+            Q(name__icontains=self.search) |
+            Q(brand__icontains=self.search) |
+            Q(category_level_1__icontains=self.search)
+        )
 
     def calculate_total_records(self):
         return len(self.data)
@@ -65,6 +63,9 @@ class ProcessTableData:
             'sku', 'name', 'product_variations', 'brand',
             'category_level_1', 'current_price', 'cost'
         ).prefetch_related('product_variations')
+
+        products = self.task_4_search_data(products)
+
         for product in products:
             product_info = dict()
 
