@@ -14,7 +14,7 @@ class ProcessTableData:
 
         self.data = self.task_2_generate_data()
 
-    def sort_data(self):
+    def task_5_sort_data(self):
         headers_index = {
             "0": "sku",
             "1": "name",
