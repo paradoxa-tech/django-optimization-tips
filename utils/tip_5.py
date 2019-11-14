@@ -3,6 +3,7 @@ from products.models import Product
 
 
 def looping():
+    # DON'T
     initial_number_of_queries = len(connection.queries)
     products = Product.objects.filter(id__lte=5)
     products_with_low_id = {}
