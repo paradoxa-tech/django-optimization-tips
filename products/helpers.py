@@ -23,7 +23,7 @@ class ProcessTableData:
             "3": "category_level_1",
             "4": "variations",
             "5": "price",
-            "6": "margin",
+            "6": "profit",
             "7": "last_month_sales"
         }
 
@@ -68,7 +68,7 @@ class ProcessTableData:
             product_info["variations"] = self.get_product_variations(product)
             product_info["brand"] = product.brand
             product_info["category_level_1"] = product.category_level_1
-            product_info["margin"] = self.get_product_margin(product)
+            product_info["profit"] = self.get_product_profit(product)
             product_info["price"] = product.current_price
             product_info["last_month_sales"] = self.task_3_get_last_month_sales(
                 product
@@ -86,9 +86,9 @@ class ProcessTableData:
         ]
 
     @staticmethod
-    def get_product_margin(product):
-        margin = product.current_price - product.cost
-        return margin
+    def get_product_profit(product):
+        profit = product.current_price - product.cost
+        return profit
 
     @staticmethod
     def task_3_get_last_month_sales(product):
