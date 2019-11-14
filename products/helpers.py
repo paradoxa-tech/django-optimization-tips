@@ -14,6 +14,7 @@ class ProcessTableData:
 
         self.data = self.task_2_generate_data()
 
+    # def task_5_sort_data(self, product_queryset):
     def task_5_sort_data(self):
         headers_index = {
             "0": "sku",
@@ -37,6 +38,7 @@ class ProcessTableData:
             reverse=reverse
         )
 
+    # self.task_4_search_data(product_queryset):
     def task_4_search_data(self):
         if not self.search:
             return self.data
