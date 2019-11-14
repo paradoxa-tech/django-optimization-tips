@@ -21,7 +21,6 @@ class ProcessTableData:
             "1": "name",
             "2": "brand",
             "3": "category_level_1",
-            "4": "variations",
             "5": "price",
             "6": "profit",
             "7": "last_month_sales"
