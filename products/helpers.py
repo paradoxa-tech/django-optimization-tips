@@ -103,4 +103,4 @@ class ProcessTableData:
             product=product, date__gte=last_month_date
         ).aggregate(
             Sum('quantity_purchased')
-        )
+        )['quantity_purchased__sum']
