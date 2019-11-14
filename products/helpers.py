@@ -17,7 +17,7 @@ class ProcessTableData:
         self.data = self.task_2_generate_data()
 
     # def task_5_sort_data(self, product_queryset):
-    def task_5_sort_data(self):
+    def task_5_sort_data(self, products_queryset):
         headers_index = {
             "0": "sku",
             "1": "name",
@@ -27,17 +27,10 @@ class ProcessTableData:
             "6": "profit",
             "7": "last_month_sales"
         }
-
+        column = headers_index[self.order_column]
         if self.order_dir == "asc":
-            reverse = False
-        else:
-            reverse = True
-
-        self.data = sorted(
-            self.data,
-            key=lambda i: i[headers_index[self.order_column]],
-            reverse=reverse
-        )
+            column = '-' + column
+        return products_queryset.order_by(column)
 
     # self.task_4_search_data(product_queryset):
     def task_4_search_data(self, products_queryset):
@@ -65,8 +58,9 @@ class ProcessTableData:
         ).prefetch_related('product_variations')
 
         products = self.task_4_search_data(products)
+        sorted_products = self.task_5_sort_data(products)
 
-        for product in products:
+        for product in sorted_products:
             product_info = dict()
 
             product_info["sku"] = product.sku
