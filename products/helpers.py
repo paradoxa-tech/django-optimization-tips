@@ -59,9 +59,13 @@ class ProcessTableData:
 
     def task_2_generate_data(self):
         table_info = []
-
-        for product in Product.objects.all():
+        products = Product.objects.all().only(
+            'sku', 'name', 'product_variations', 'brand',
+            'category_level_1', 'current_price', 'cost'
+        ).prefetch_related('product_variations')
+        for product in products:
             product_info = dict()
+
             product_info["sku"] = product.sku
             product_info["name"] = product.name
             product_info["variations"] = self.get_product_variations(product)
