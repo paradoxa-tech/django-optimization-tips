@@ -1,5 +1,7 @@
 import datetime
 
+from django.db.models import Sum
+
 from products.models import Product, Sale
 
 
@@ -95,12 +97,10 @@ class ProcessTableData:
 
     @staticmethod
     def task_3_get_last_month_sales(product):
-        sales = Sale.objects.filter(product=product)
         today = datetime.date.today()
         last_month_date = today - datetime.timedelta(days=30)
-        quantity_acc = 0
-        for sale in sales:
-            if sale.date.date() <= last_month_date:
-                quantity_acc += sale.quantity_purchased
-
-        return quantity_acc
+        return Sale.objects.filter(
+            product=product, date__gte=last_month_date
+        ).aggregate(
+            Sum('quantity_purchased')
+        )
