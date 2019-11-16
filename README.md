@@ -10,7 +10,12 @@ You can install Python3 through apt-get:
 $ sudo apt-get update
 $ sudo apt-get install python3
 ```
-
+For old Ubuntu versions, you can follow these steps to get Python 3.6+ versions:
+```
+$ sudo add-apt-repository ppa:deadsnakes/ppa
+$ sudo apt-get update
+$ sudo apt-get install python3.6 python3.6-dev python3.6-venv
+```
 ## Pip3
 In order to install pip3, you have to install some prerequisites:
 ```
@@ -58,6 +63,10 @@ git clone https://github.com/paradoxa-tech/django-optimization-tips.git
 ```
 cd django-optimization-tips
 pip3 install -r requirements.txt
+```
+## Setup the database:
+```
+$ python manage.py migrate
 ```
 ## Run the server
 ```
