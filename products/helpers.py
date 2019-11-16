@@ -98,7 +98,7 @@ class ProcessTableData:
     @staticmethod
     def task_3_get_last_month_sales(product):
         today = datetime.date.today()
-        last_month_date = today - datetime.timedelta(days=90)
+        last_month_date = today - datetime.timedelta(days=30)
         last_month_sales = Sale.objects.filter(
             product=product, date__gte=last_month_date
         ).aggregate(
