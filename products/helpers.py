@@ -96,7 +96,7 @@ class ProcessTableData:
         last_month_date = today - datetime.timedelta(days=30)
         quantity_acc = 0
         for sale in sales:
-            if sale.date.date() <= last_month_date:
+            if sale.date.date() >= last_month_date:
                 quantity_acc += sale.quantity_purchased
 
         return quantity_acc
