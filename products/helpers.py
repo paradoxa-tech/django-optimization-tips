@@ -88,11 +88,15 @@ class ProcessTableData:
     def task_3_get_last_month_sales(product):
         today = datetime.date.today()
         last_month_date = today - datetime.timedelta(days=30)
-        return Sale.objects.filter(
+        last_month_sales = Sale.objects.filter(
             product=product, date__gte=last_month_date
         ).aggregate(
             Sum('quantity_purchased')
         )['quantity_purchased__sum']
+
+        if not last_month_sales:
+            return 0
+        return last_month_sales
 
 
 def update_intermediate_products():
